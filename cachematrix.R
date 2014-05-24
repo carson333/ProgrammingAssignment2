@@ -1,15 +1,26 @@
-## Put comments here that give an overall description of what your
-## functions do
+## My functions compute the inverse of a matrix and cache both
+## the inverse and the matrix.
 
-## Write a short comment describing this function
+## The user will input a matrix, and the program will cache
+## the matrix, and inverse matrix without printing anything.
 
-makeCacheMatrix <- function(x = matrix()) {
-
+makeCacheMatrix <- function(mat = matrix()) {
+  mat <<- mat
+  inverse <<- solve(mat)
+  message ("The matrix and its inverse have been cached.")
 }
 
+## The user will input the matrix and it will print its inverse.
+## It will also attempt to retrieve the cached inverse 
+## in order not to do the calculations.
 
-## Write a short comment describing this function
-
-cacheSolve <- function(x, ...) {
-        ## Return a matrix that is the inverse of 'x'
+cacheSolve <- function(x = matrix(), ...) {
+  if("x" == "mat") {
+    print(inverse)
+  } else { 
+    message("The inverse is not cached, computing inverse now.")
+    mat <<- x
+    inverse <<- solve(x)
+    print(inverse)
+  }   
 }
